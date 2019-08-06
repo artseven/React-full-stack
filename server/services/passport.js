@@ -4,6 +4,11 @@ const mongoose       = require('mongoose');
 const keys           = require('../config/keys');
 
 const User           = mongoose.model('users');
+
+passport.serializeUser((user, done) => {
+    //user.id refers to unique identifier created for mongo 'user' record
+    done(null, user.id);
+})
 //new instance of passport google strategy
 passport.use(
     new GoogleStrategy({

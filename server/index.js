@@ -1,10 +1,11 @@
 const express        = require('express');
 const mongoose       = require('mongoose');
 const keys           = require('./config/keys');
+//model should be required first before used in passport
+require('./models/User');
 require('./services/passport');
 //same as 
 //const passportConfig = require('./services/passport');
-require('./models/User');
 
 mongoose.connect(keys.mongoURI);
 

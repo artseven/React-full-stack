@@ -8,7 +8,15 @@ const User           = mongoose.model('users');
 passport.serializeUser((user, done) => {
     //user.id refers to unique identifier created for mongo 'user' record
     done(null, user.id);
-})
+});
+
+passport.deserializeUser((id, done) => {
+    User.findById(id)
+        .then(user => {
+            done(null, user);
+        });
+});
+
 //new instance of passport google strategy
 passport.use(
     new GoogleStrategy({

@@ -8,8 +8,10 @@ const SurveyNew = () => <h2>SurveyNew</h2>;
 const Landing = () => <h2>Landing</h2>;
 
 const App = () => {
+    //materializeCSS assumes that there is at least 1 root component
+    //with the class "container"
     return (
-        <div>
+        <div className="container">
             <BrowserRouter>
                 <div>
                     <Header />

@@ -30,12 +30,6 @@ require('./routes/authRoutes')(app);
 //authRoutes(app);
 
 
-
-process.on('SIGINT', () => {
-    console.log('do SIGINT');
-    process.exit();
-})
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
 

@@ -8,11 +8,11 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return(
-                    <li><a href="/auth/google">Login With Google</a></li>
-                )
+                console.log('case false', this.props.auth);
+                return <li><a href="/auth/google">Login With Google</a></li>;  
             default:
-                return <li><a>Logout</a></li>;
+                console.log('Case is logout');
+                return <li><a href="/api/logout">Logout</a></li>;
         }
     }
     render() {
@@ -31,7 +31,7 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps({ auth }) {
+function mapStateToProps( { auth} ) {
     return { auth };
 }
 

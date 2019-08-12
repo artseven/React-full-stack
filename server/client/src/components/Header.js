@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
     //displaying different content based on whether user is logged in
@@ -11,7 +12,6 @@ class Header extends Component {
             case false:
                 return <li><a href="/auth/google">Login With Google</a></li>;  
             default:
-                console.log('Case is logout');
                 return <li><a href="/api/logout">Logout</a></li>;
         }
     }

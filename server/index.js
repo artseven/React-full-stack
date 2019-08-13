@@ -28,6 +28,7 @@ require('./routes/authRoutes')(app);
 //same as 
 //const authRoutes     = require('./routes/authRoutes');
 //authRoutes(app);
+require('./routes/billingRoutes')(app);
 
 
 const PORT = process.env.PORT || 5000;

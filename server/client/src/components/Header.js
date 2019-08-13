@@ -13,8 +13,8 @@ class Header extends Component {
                 return <li><a href="/auth/google">Login With Google</a></li>;  
             default:
                 return [
-                    <li key={Math.random()}><Payments></Payments></li>,
-                    <li key={Math.random()}><a href="/api/logout">Logout</a></li>
+                    <li key="1"><Payments></Payments></li>,
+                    <li key="2"><a href="/api/logout">Logout</a></li>
                 ]
         }
     }

@@ -10,7 +10,7 @@ require('./services/passport');
 //same as 
 //const passportConfig = require('./services/passport');
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, {useNewUrlParser: true});
 
 
 const app = express();

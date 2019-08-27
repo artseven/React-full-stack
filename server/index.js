@@ -32,7 +32,7 @@ require('./routes/authRoutes')(app);
 //const authRoutes     = require('./routes/authRoutes');
 //authRoutes(app);
 require('./routes/billingRoutes')(app);
-
+require('./routes/surveyRoutes')(app);
 if (process.env.NODE_ENV === 'production') {
     //express will serve up production assets
     //like our manjs file, or main.css file!

@@ -9,6 +9,9 @@ import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
+//development-only helpers for in-browser console REST actions
+import axios from 'axios';
+window.axios = axios;
 
 
 

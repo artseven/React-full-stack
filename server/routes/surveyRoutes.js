@@ -24,10 +24,10 @@ module.exports = app => {
 		//if any of asynchronous requests fail, we send error to the user
 		try{
 			await mailer.send();
-			await Survey.save();
-			req.user.credit -= 1;
+			await survey.save();
+			req.user.credits -= 1;
 			const user = await req.user.save();
-	
+			
 			res.send(user);
 		} catch (err) {
 			res.status(422).send(err);

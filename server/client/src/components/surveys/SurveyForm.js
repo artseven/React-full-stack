@@ -6,17 +6,11 @@ import _ from 'lodash';
 
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
+import formFields from './formFields';
 
-
-const FIELDS = [
-	{label: 'Survey Title', name: 'title', noValueError: 'Provide a Survey Title'},
-	{label: 'Subject Line', name: 'line', noValueError: 'Provide a Subject Line'},
-	{label: 'Email Body', name: 'body', noValueError: 'Provide an Email Body'},
-	{label: 'Recipient List', name: 'emails', noValueError: 'Provide a Recipient List'}
-]
 class SurveyForm extends Component {
 	renderFields() {
-		return _.map(FIELDS, ({ label, name }) => {
+		return _.map(formFields, ({ label, name }) => {
 			return <Field key={name} component={SurveyField} type="text" label={label} name={name} />
 		})
 	}
@@ -44,7 +38,7 @@ function validate(values) {
 
 	errors.emails = validateEmails(values.emails || '');
 
-	_.each(FIELDS, ({ name, noValueError }) => {
+	_.each(formFields, ({ name, noValueError }) => {
 		if (!values[name]) {
 			errors[name] = noValueError;
 		}
@@ -55,5 +49,7 @@ function validate(values) {
 
 export default reduxForm({
 	validate,
-	form: 'surveyForm'
+	//assigns this name to the object within redux store
+	form: 'surveyForm',
+	destroyOnUnmount: false
 })(SurveyForm);

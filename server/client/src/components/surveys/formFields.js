@@ -6,7 +6,7 @@ export default [
   },
   {
     label: "Subject Line",
-    name: "line",
+    name: "subject",
     noValueError: "Provide a Subject Line"
   },
   {

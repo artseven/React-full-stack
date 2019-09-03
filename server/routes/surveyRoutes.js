@@ -27,7 +27,7 @@ module.exports = app => {
 			})
 			.compact()
 			.uniqBy('email', 'surveyId')
-			.each(event => {
+			.each(({ surveyId, email, choice }) => {
 				Survey.updateOne({
 					_id: surveyId,
 					recipients: {
@@ -36,7 +36,7 @@ module.exports = app => {
 				}, {
 					$inc: { [choice]: 1 },
 					$set: { 'recipients.$.responded': true }
-				})
+				}).exec();
 			})
 			.value();
 
